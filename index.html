@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html data-app>
+<head>
+    <title>demo</title>
+    <meta charset="utf-8"/>
+    <script src="shims.js"></script>
+    <script src="Shit.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=.95">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+</head>
+<body data-view="index">
+
+<!-- template: main index -->
+
+    <span class="status" id="message" data-bind="text: title">
+      Wait...
+    </span>
+
+    <div id="container" class="tbl">
+        <table>
+            <thead>
+
+            </thead>
+            <tbody>
+            <!-- ko foreach: model.items -->
+
+            <tr>
+                <td colspan="7" nowrap="nowrap">
+                    <span data-bind="day: $data"></span>
+                </td>
+            </tr>
+
+            <!-- /ko -->
+
+            </tbody>
+        </table>
+    </div>
+
+
+<script src="https://ajax.aspnetcdn.com/ajax/knockout/knockout-2.2.1.js"></script>
+<script src="knockout-es5.min.js"></script>
+
+<script src="localeservice.js"></script>
+<script  src="app.js"></script>
+<script  src="index.js"></script>
+
+</body>
+</html>
