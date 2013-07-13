@@ -14,7 +14,7 @@ Demo files shows integration with knockout.js
 ```
 
 ```javascript
-// if 'someApp' is skipped, then 'Application' is the default. Even `var someApp=` can be skipped for simple apps
+// if 'someApp' is skipped, then 'Application' is the default. Even `var someApp=` can be skipped 
 $hit.Application('someApp', function(){
   return {
     init: function($map){
