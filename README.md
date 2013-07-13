@@ -21,7 +21,7 @@ $hit.Application('someApp', function(){
       // app wide dependencies
       $map.l8nData = {DEMO_STRING: { value: 'reloj', lang:'es'}};
     },
-    databind: function(vm){
+    databind: function(vm, element){
       //databind is a app level callback for all views
       // plugin knockout, or handlebars, or whatever
       ko.applyBindings(vm)
