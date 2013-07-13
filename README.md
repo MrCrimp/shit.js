@@ -24,7 +24,7 @@ $hit.Application('someApp', function(){
     databind: function(vm, element){
       //databind is a app level callback for all views
       // plugin knockout, or handlebars, or whatever
-      ko.applyBindings(vm)
+      ko.applyBindings(vm, element)
     }
   };  
 });
