@@ -1,11 +1,11 @@
 shit.js
 =======
-99 LOC module and mvvm framework with some DI support
+99 LOC module and mvvm framework with some DI support written for mobile js apps
 
 Demo files shows integration with knockout.js
 
 ```HTML
-// data-app attribute
+// data-app attribute maps to a root application
 <!html data-app>
 <!html data-app='someApp'>
 
@@ -15,7 +15,7 @@ Demo files shows integration with knockout.js
 
 ```javascript
 // if 'someApp' is skipped, then 'Application' is the default. Even `var someApp=` can be skipped for simple apps
-var someApp = $hit.Application('someApp', function(){
+$hit.Application('someApp', function(){
   return {
     init: function($map){
       // app wide dependencies
