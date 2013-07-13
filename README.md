@@ -1,6 +1,6 @@
 shit.js
 =======
-99 LOC module and mvvm framework with some DI support written for mobile js apps
+99 lines of code, module and mvvm framework with some DI support written for mobile js apps
 
 Demo files shows integration with knockout.js
 
@@ -39,6 +39,7 @@ $hit.ViewModel('index', function( l8nService ){
 // $hit.Service
 // or
 someApp.Service('l8nService', function(l8nData){
+  this.data = l8nData;
   this.label: function(key){
     // data is injected app wide
     return this.data[key];
