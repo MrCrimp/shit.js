@@ -1,6 +1,6 @@
  
 !function(exports, $, undefined){
-   var shitApps = [], rootDefined = false, tick = 0;
+   var shitApps = [], rootDefined = false;
    
    function appNamespace(n, a){
       if( shitApps[n] ){
@@ -63,7 +63,7 @@
          appl = exports.document.querySelector("[data-app]").getAttribute("data-app") || "Application";
          actualProt = nameOrProt;
       }
-      a.prototype = actualProt;
+      a.prototype = actualProt;      
       instance = new appNamespace( appl, a );
       a.prototype.databind = a.prototype.databind || function(){};
       a.prototype.init = a.prototype.init|| function(){};
@@ -71,6 +71,7 @@
       a.prototype.Service = Service.bind( instance )
       a.prototype.dependencies = a.prototype.dependencies || {};
       a.prototype.dependencies[appl] = {};
+      a.prototype.resolved = false;
       a.prototype.resolve = function( svc ){
          if( !shitApps[instance._typeName][svc] ) return;
          var target = "object"==typeof shitApps[instance._typeName][svc] ?
@@ -81,12 +82,12 @@
       }
 	  rootDefined= true;	  
       window.addEventListener('DOMContentLoaded', function (){
-         if (tick) return;
+         if ( instance.resolved ) return;
          [].slice.call(document.querySelectorAll( "[data-view]" ) ).forEach( function ( view ) {
             var vm = view.getAttribute( "data-view" );
             if ( !vm || !vm.length ) return;
             view.dataset.viewmodel = instance.resolve( vm );
-         }); tick++;
+         }); instance.resolved = true;
       }, false); 
       instance.init(instance.dependencies[appl]);     
       return instance;
