@@ -72,12 +72,12 @@
       a.prototype.dependencies = a.prototype.dependencies || {};
       a.prototype.dependencies[appl] = {};
       a.prototype.resolved = false;
-      a.prototype.resolve = function( svc ){
+      a.prototype.resolve = function( svc, rootElement ){
          if( !shitApps[instance._typeName][svc] ) return;
          var target = "object"==typeof shitApps[instance._typeName][svc] ?
             shitApps[instance._typeName][svc] :
             shitApps[instance._typeName][svc] = inject.call( instance, shitApps[instance._typeName][svc] );         
-         if( target._type === "ViewModel" ) instance.databind(shitApps[instance._typeName][svc]);
+         if( target._type === "ViewModel" ) instance.databind(shitApps[instance._typeName][svc], rootElement);
          return target;
       }
 	  rootDefined= true;	  
@@ -86,7 +86,7 @@
          [].slice.call(document.querySelectorAll( "[data-view]" ) ).forEach( function ( view ) {
             var vm = view.getAttribute( "data-view" );
             if ( !vm || !vm.length ) return;
-            view.dataset.viewmodel = instance.resolve( vm );
+            view.dataset.viewmodel = instance.resolve( vm, view );
          }); instance.resolved = true;
       }, false); 
       instance.init(instance.dependencies[appl]);     
