@@ -41,7 +41,7 @@ $hit.ViewModel('index', function( l8nService ){
 someApp.Service('l8nService', function(l8nData){
   this.data = l8nData;
   this.label: function(key){
-    // data is injected app wide
+    // data was injected app wide
     return this.data[key];
   }
 });
