@@ -14,8 +14,8 @@ Demo files shows integration with knockout.js
 ```
 
 ```javascript
-// if 'someApp' is skipped, then 'Application' is the default. Even `var someApp=` can be skipped 
-$hit.Application('someApp', function(){
+// then value from data-app attribute is the name of our app, with fallback to 'Application' as the default. 
+$hit.Application( function(){
   return {
     init: function($map){
       // app wide dependencies
@@ -38,7 +38,7 @@ $hit.ViewModel('index', function( il8nService ){
 // either syntax can be used, depending on use case
 // $hit.Service
 // or
-someApp.Service('l8nService', function(il8nData){
+someApp.Service('il8nService', function(il8nData){
   this.data = il8nData;
   this.label: function(key){
     // data was injected app wide
