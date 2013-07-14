@@ -19,7 +19,7 @@ $hit.Application('someApp', function(){
   return {
     init: function($map){
       // app wide dependencies
-      $map.l8nData = {DEMO_STRING: { value: 'reloj', lang:'es'}};
+      $map.il8nData = {DEMO_STRING: { value: 'reloj', lang:'es'}};
     },
     databind: function(vm, element){
       //databind is a app level callback for all views
@@ -30,16 +30,16 @@ $hit.Application('someApp', function(){
 });
 
 // define a viewmodel, depend on l8nService
-$hit.ViewModel('index', function( l8nService ){
-  this.title = l8nService.label('DEMO_STRING') + 'demo';
+$hit.ViewModel('index', function( il8nService ){
+  this.title = il8nService.label('DEMO_STRING') + 'demo';
 });
 
 // Define a service to inject
 // either syntax can be used, depending on use case
 // $hit.Service
 // or
-someApp.Service('l8nService', function(l8nData){
-  this.data = l8nData;
+someApp.Service('l8nService', function(il8nData){
+  this.data = il8nData;
   this.label: function(key){
     // data was injected app wide
     return this.data[key];
