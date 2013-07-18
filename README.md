@@ -1,6 +1,8 @@
 shit.js
 =======
-99 lines of code, module and mvvm framework with some DI support written for mobile js apps
+Just a quick little experiment to expore modularity after using AngularJS
+
+100 lines of code trying to achieve a module and mvvm framework with some DI support written for mobile js apps
 
 Demo files shows integration with knockout.js
 
@@ -14,9 +16,9 @@ Demo files shows integration with knockout.js
 ```
 
 ```javascript
-// then value from data-app attribute is the name of our app, with fallback to 'Application' as the default. 
+// then value from data-app attribute is the name of our app, with fallback to '$Application' as the default. 
 $hit.Application( function(){
-  return {
+  return {  
     init: function($map){
       // app wide dependencies
       $map.il8nData = {DEMO_STRING: { value: 'reloj', lang:'es'}};
@@ -29,8 +31,8 @@ $hit.Application( function(){
   };  
 });
 
-// define a viewmodel, depend on l8nService
-$hit.ViewModel('index', function( il8nService ){
+// define a viewmodel, depend on l8nService, and the app scope by using '$scope'
+$hit.ViewModel('index', function( il8nService, $scope ){
   this.title = il8nService.label('DEMO_STRING') + 'demo';
 });
 
@@ -38,7 +40,8 @@ $hit.ViewModel('index', function( il8nService ){
 // either syntax can be used, depending on use case
 // $hit.Service
 // or
-someApp.Service('il8nService', function(il8nData){
+someApp.Service('il8nService', function(il8nData, $scope){
+  // argument '$scope' injects the app scope from caller should you need it
   this.data = il8nData;
   this.label: function(key){
     // data was injected app wide

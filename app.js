@@ -6,7 +6,7 @@
 // ----------------------------------
 // app.js:
 
-ko.bindingHandlers.day = {
+ko.bindingHandlers.randomDay = {
    update: function(element, valueAccessor, allBindingsAccessor) {
       var value = valueAccessor();
       var item = ko.utils.unwrapObservable(value);
@@ -17,6 +17,8 @@ ko.bindingHandlers.day = {
 var App = $hit.Application( (function(Global, ko, undefined){
 
    var exports = {
+
+      mode: '[WEB]',
 
       activate: function($map){
          // setup app wide dependencies before any viewmodels are resolved

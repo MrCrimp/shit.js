@@ -51,7 +51,8 @@
       var args = text.match(rx_args)[1].split(',');
       return !args.length || !args[0] ? new target() : construct(target, Array.prototype.slice.call( args.map( function(value){
          var svc = value ? value.trim() : null ;
-         if( !svc || !dep[svc]) return void 0;
+         if ( !svc ) return;
+         if( svc === "$scope" ) return o; // the app scope was required                  
          return "object" == typeof dep[svc] || 'then' in dep[svc] ? dep[svc] : inject.call(o, dep[svc] ); // promise, singleton, or recursive inject
       } ) ) )
    }
