@@ -19,8 +19,8 @@ Demo files shows integration with knockout.js
 // then value from data-app attribute is the name of our app, with fallback to '$Application' as the default. 
 $hit.Application( function(){
   return {  
-    init: function($map){
-      // app wide dependencies
+    activate: function($map){
+      // app wide dependencies can be injected. $map is the same as this.cache which is a js hash
       $map.il8nData = {DEMO_STRING: { value: 'reloj', lang:'es'}};
     },
     databind: function(vm, element){
