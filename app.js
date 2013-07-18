@@ -18,7 +18,7 @@ var App = $hit.Application( (function(Global, ko, undefined){
 
    var exports = {
 
-      init: function($map){
+      activate: function($map){
          // setup app wide dependencies before any viewmodels are resolved
 
          // add fake model to be injected later in index.js
