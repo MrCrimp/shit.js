@@ -1,6 +1,6 @@
 shit.js
 =======
-Just a quick little experiment to expore modularity after using AngularJS
+Just a quick little experiment to explore modularity after using AngularJS
 
 100 lines of code trying to achieve a module and mvvm framework with some DI support written for mobile js apps
 
