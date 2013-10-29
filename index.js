@@ -1,6 +1,7 @@
  
- // define a viewmodel that requires the app wide 'model' set in app.activate, the localeService defined using $hit.Service, and finally the 'this' scope for the App itself
-$hit.Viewmodel("index", function( model, localeService, $scope ){ 'use strict';
+ // define a viewmodel that requires the app wide 'model' set in app.activate, 
+ // the localeService defined using $hit.Service, and finally the 'this' scope for the App itself
+$hit.ViewModel("index", function( model, localeService, $scope ){ 'use strict';
    
    this.labels = {
       today: localeService.day(model.updatedAt)
